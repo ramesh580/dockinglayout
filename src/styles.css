@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+
+.parentDisable{
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 0.8;
+    z-index: 998;
+    height: 100%;
+    width: 100%;}
+
+#jqxWidget{
+    position: absolute;
+    z-index: 999;}

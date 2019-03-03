@@ -1,0 +1,149 @@
+<div id="jqxWidget" #jqxWidget>
+    
+    <div style="width: 100%; height: 650px; margin-top: 50px;" id="mainDemoContainer">
+        <jqxWindow #windowReference [width]="500" [height]="300"
+                   [maxHeight]="400" [minHeight]="200" [maxWidth]="700" [minWidth]="200"
+                   [showCollapseButton]="true">
+            <div #windowHeader>
+                <span>
+                    <img src="../assets/images/movie.png" alt="" style="margin-right: 15px" />Login
+                </span>
+            </div>
+            <div style="overflow: hidden;" #windowContent>
+               
+
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                        <label for="username">Username  </label>
+                        <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+                        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                            <div *ngIf="f.username.errors.required">Username is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password   </label>
+                        <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                            <div *ngIf="f.password.errors.required">Password is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary">Login</button>
+                      
+                    </div>
+                </form>
+                <div style="display:none">
+                    <jqxButton [width]="70" (onClick)="onShowButton()">Open</jqxButton>
+                    <jqxButton [width]="70" (onClick)="onHideButton()">Close</jqxButton>
+                </div> 
+
+            </div>
+        </jqxWindow>
+    </div>
+</div>
+
+<div [ngStyle]="{'display': showHead ? 'block' : 'none' }">
+
+    <div style="margin-top: 20px">
+        <jqxButton #viewServerExplorer1Btn
+        (onClick)="viewServerExplorerBtn1OnClick()">   
+        Add Layout 1
+      </jqxButton>
+      
+      <jqxButton #viewServerExplorer2Btn
+      (onClick)="viewServerExplorerBtn2OnClick()">   
+      Add Layout 2
+      </jqxButton>
+      
+      <jqxButton #viewServerExplorer3Btn
+      (onClick)="viewServerExplorerBtn3OnClick()">   
+      Add Layout 3
+      </jqxButton>
+      
+      
+      <jqxButton #viewServerExplorer4Btn
+      (onClick)="viewServerExplorerBtn4OnClick()">   
+      Add Layout 4
+      </jqxButton>
+      
+      <jqxButton #viewServerExplorer5Btn
+      (onClick)="viewServerExplorerBtn5OnClick()">   
+      Add Layout 5
+      </jqxButton>
+      
+      </div>
+      <jqxDockingLayout #myDockingLayout [auto-create]="false">
+      
+        <div data-container="ToolboxPanel">
+          List of tools
+        </div>
+        <div data-container="HelpPanel">
+          Help topics
+        </div>
+      
+        <div data-container="Document1Panel">
+          Document 1 content
+        </div>
+        <div data-container="Document2Panel">
+          Document 2 content
+        </div>
+       
+        <div data-container="ErrorListPanel">
+          List of errors
+        </div>
+      
+        <div data-container="SolutionExplorerPanel">
+          <div id="treeContainer" style="border: none;"></div>
+        </div>
+        <div data-container="PropertiesPanel">
+          List of properties
+        </div>
+       
+        <div data-container="OutputPanel">
+          <div style="font-family: Consolas;">
+            <p>
+              Themes installation complete.
+            </p>
+            <p>
+              List of installed stylesheet files. Include at least one stylesheet Theme file and
+              the images folder:
+            </p>
+            <ul>
+              <li>
+                styles/jqx.base.css: Stylesheet for the base Theme. The jqx.base.css file should
+                be always included in your project.
+              </li>
+              <li>styles/jqx.arctic.css: Stylesheet for the Arctic Theme</li>
+              <li>styles/jqx.web.css: Stylesheet for the Web Theme</li>
+              <li>styles/jqx.bootstrap.css: Stylesheet for the Bootstrap Theme</li>
+              <li>styles/jqx.classic.css: Stylesheet for the Classic Theme</li>
+              <li>styles/jqx.darkblue.css: Stylesheet for the DarkBlue Theme</li>
+              <li>styles/jqx.energyblue.css: Stylesheet for the EnergyBlue Theme</li>
+              <li>styles/jqx.shinyblack.css: Stylesheet for the ShinyBlack Theme</li>
+              <li>styles/jqx.office.css: Stylesheet for the Office Theme</li>
+              <li>styles/jqx.metro.css: Stylesheet for the Metro Theme</li>
+              <li>styles/jqx.metrodark.css: Stylesheet for the Metro Dark Theme</li>
+              <li>styles/jqx.orange.css: Stylesheet for the Orange Theme</li>
+              <li>styles/jqx.summer.css: Stylesheet for the Summer Theme</li>
+              <li>styles/jqx.black.css: Stylesheet for the Black Theme</li>
+              <li>styles/jqx.fresh.css: Stylesheet for the Fresh Theme</li>
+              <li>styles/jqx.highcontrast.css: Stylesheet for the HighContrast Theme</li>
+              <li>styles/jqx.blackberry.css: Stylesheet for the Blackberry Theme</li>
+              <li>styles/jqx.android.css: Stylesheet for the Android Theme</li>
+              <li>styles/jqx.mobile.css: Stylesheet for the Mobile Theme</li>
+              <li>styles/jqx.windowsphone.css: Stylesheet for the Windows Phone Theme</li>
+              <li>styles/jqx.ui-darkness.css: Stylesheet for the UI Darkness Theme</li>
+              <li>styles/jqx.ui-lightness.css: Stylesheet for the UI Lightness Theme</li>
+              <li>styles/jqx.ui-le-frog.css: Stylesheet for the UI Le Frog Theme</li>
+              <li>styles/jqx.ui-overcast.css: Stylesheet for the UI Overcast Theme</li>
+              <li>styles/jqx.ui-redmond.css: Stylesheet for the UI Redmond Theme</li>
+              <li>styles/jqx.ui-smoothness.css: Stylesheet for the UI Smoothness Theme</li>
+              <li>styles/jqx.ui-start.css: Stylesheet for the UI Start Theme</li>
+              <li>styles/jqx.ui-sunny.css: Stylesheet for the UI Sunny Theme</li>
+              <li>styles/images: contains images referenced in the stylesheet files</li>
+            </ul>
+          </div>
+        </div>
+      </jqxDockingLayout>
+
+</div>        
